@@ -1,0 +1,57 @@
+<div class="main">
+  <div class="col-lg-5 shadow p-4 mx-auto" >
+    <form action="" (ngSubmit)="register()">
+      <p class="display-4">Registration Form</p>
+      <hr>
+      <div class="form-group mt-3">
+        <label for="">First Name</label>
+        <input type="text" class="form-control" [(ngModel)]="user.firstName" name="firstName">
+      </div>
+      <div class="form-group mt-3">
+        <label for="">Last Name</label>
+        <input type="text" class="form-control" [(ngModel)]="user.lastName" name="lastName">
+      </div>
+      <div class="form-group mt-3">
+        <label for="">Email</label>
+        <input type="email" class="form-control" [(ngModel)]="user.email" name="email">
+      </div>
+      <div class="form-group mt-3">
+        <label for="">Password</label>
+        <input type="password" class="form-control" [(ngModel)]="user.password" name="password">
+      </div>
+
+      <!-- Address Input Field -->
+      <!-- <div class="form-group mt-3">
+        <label for="">Address</label>
+        <input type="text" class="form-control" #address (keyup)="onAddressType(address.value)" name="address" [(ngModel)]='selectedAddress.formattedAddress'>
+      </div> -->
+
+      <div class="form-group mt-3">
+        <label for="">Address</label>
+        <input type="text" class="form-control" (keyup)="onAddressType()" name="address" [(ngModel)]='selectedAddress.formattedAddress'>
+      </div>
+
+
+      <div class="list-group">
+        <a *ngFor="let address of addresses" class="list-group-item list-group-item-action" (click)="onSelectAddress(address)">{{address.formattedAddress}}</a>
+      </div>
+
+      <div class="form-group mt-3">
+        <label for="">Pin Code</label>
+        <input type="text" class="form-control"  name="pinCode" [(ngModel)]='selectedAddress.pincode'>
+      </div>
+
+      <div class="form-group mt-3">
+        <label for="">State</label>
+        <input type="text" class="form-control"  name="state" [(ngModel)]='selectedAddress.state'>
+      </div>
+
+
+      <!-- Submit Button -->
+      <div class="form-group mt-3">
+        <input type="submit" class="btn btn-primary" name="Register">
+      </div>
+
+    </form>
+  </div>
+</div>
